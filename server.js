@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
-
+console.log('!!!!PORT IS: ', port);
 io.on('connection', function(socket){
   socket.on('accidentReport', function(report){
     io.emit('newAccident', report);
