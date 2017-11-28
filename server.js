@@ -4,10 +4,10 @@ var bodyParser = require("body-parser");
 
 var app = express();
 app.use(bodyParser.json());
-var port = 8080 || process.env.PORT;
+var port = process.env.PORT || 8080;
 app.get('/report', function(req, res) {
   console.log('!!!GTREAT SUCCESS')
-  res.send(201);
+  res.send(200);
 })
 
 app.listen(port, function() {
