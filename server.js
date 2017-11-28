@@ -1,7 +1,9 @@
-var express = require("express");
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 var bodyParser = require("body-parser");
-var app = express();
-var io = require('socket.io')(app);
+
+
 
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
@@ -18,6 +20,6 @@ app.post('/report', function(req, res) {
   res.send(200);
 })
 
-app.listen(port, function() {
+server.listen(port, function() {
   console.log('Our app is running on http://localhost:' + port);
 });
