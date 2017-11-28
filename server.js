@@ -17,6 +17,10 @@ io.on('connection', function(socket){
     console.log('!!!vehicleAssignment: ', assignment);
     io.emit('newAssignment', assignment);
   });
+  socket.on('vehicleAccident', function(accident){
+    console.log('!!!vehicleAccident: ', assignment);
+    io.emit('newVehicleAccident', accident);
+  })
   console.log('a user connected');
 });
 
