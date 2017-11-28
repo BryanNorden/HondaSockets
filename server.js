@@ -10,7 +10,12 @@ var port = process.env.PORT || 8080;
 console.log('!!!!PORT IS: ', port);
 io.on('connection', function(socket){
   socket.on('accidentReport', function(report){
+    console.log('!!!accidentReport: ', report);
     io.emit('newAccident', report);
+  });
+  socket.on('vehicleAssignment', function(assignment){
+    console.log('!!!vehicleAssignment: ', assignment);
+    io.emit('newAssignment', assignment);
   });
   console.log('a user connected');
 });
@@ -18,7 +23,7 @@ io.on('connection', function(socket){
 app.post('/report', function(req, res) {
   console.log('!!!GTREAT SUCCESS')
   res.send(200);
-})
+});
 
 server.listen(port, function() {
   console.log('Our app is running on http://localhost:' + port);
